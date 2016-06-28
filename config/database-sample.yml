@@ -9,8 +9,8 @@ default: &default
   pool: 5
   timeout: 5000
   host: localhost
-  username: tpdo
-  password: tpdo
+  username: atwan
+  password: atwan
   database: atwan
 
 
