@@ -3,7 +3,7 @@ class NotificationController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    render nothing: true
+    @notifications = Notification.all
   end
 
   def create

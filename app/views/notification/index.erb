@@ -1,0 +1,22 @@
+<table data-toggle="table">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Key</th>
+      <th>Steam ID</th>
+      <th>Title</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @notifications.each do |notification| %>
+    <tr>
+      <td><%= notification.created_at %></td>
+      <td><%= notification.key %></td>
+      <td><%= notification.steamid %></td>
+      <td><%= notification.notetitle %></td>
+      <td><%= notification.message %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
