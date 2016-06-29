@@ -16,5 +16,7 @@
 !/log/.keep
 /tmp
 .idea
-config/database.yml
-config/secret.yml
+
+# Ignore application configuration
+/config/database.yml
+/config/application.yml
