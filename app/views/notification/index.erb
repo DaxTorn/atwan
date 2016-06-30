@@ -1,31 +1,32 @@
-<%= link_to image_tag('http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_large_noborder.png'), '/auth/steam' %>
-
 <% if session.key? :current_user %>
-    <h3>Current user:</h3>
-    <%= image_tag session[:current_user]['image'] %>
-    <p><%= session[:current_user]['nickname'] %></p>
-    <p><%= session[:current_user][':uid'] %></p>
-<% end %>
+    Bienvenue <%= session[:current_user]['nickname'] %>, <%= link_to 'Déconnexion', 'logout' %>
 
-<table data-toggle="table">
-  <thead>
-    <tr>
-      <th>Time</th>
-      <th>Key</th>
-      <th>Steam ID</th>
-      <th>Title</th>
-      <th>Message</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @notifications.each do |notification| %>
-    <tr>
-      <td><%= notification.created_at %></td>
-      <td><%= notification.key %></td>
-      <td><%= notification.steamid %></td>
-      <td><%= notification.notetitle %></td>
-      <td><%= notification.message %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+    <h3>Notifications</h3>
+
+    <table data-toggle="table" data-striped="true" data-search="true">
+      <thead>
+      <tr>
+        <th>Date et heure</th>
+        <th>Titre</th>
+        <th>Message</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @notifications.each do |notification| %>
+          <tr>
+            <td><%= notification.created_at %></td>
+            <td><%= notification.notetitle %></td>
+            <td><%= notification.message %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+<% else %>
+
+    <h3>Connexion</h3>
+    <p>Veuillez vous identifier via Steam pour voir vos notifications</p>
+
+    <%= link_to image_tag('https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png'), root_url + 'auth/steam' %>
+
+<% end %>

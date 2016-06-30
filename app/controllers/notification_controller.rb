@@ -3,7 +3,9 @@ class NotificationController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    @notifications = Notification.all
+    if session.key? :current_user
+      @notifications = Notification.where(steamid: session[:current_user]['uid'] )
+    end
   end
 
   def create
@@ -19,13 +21,4 @@ class NotificationController < ApplicationController
     render json: {:status => 'OK'}
   end
 
-  def auth_callback
-    auth = request.env['omniauth.auth']
-
-    session[:current_user] = { :nickname => auth.info.nickname,
-                               :image => auth.info.image,
-                               :uid => auth.uid }
-
-    redirect_to root_url
-  end
 end
