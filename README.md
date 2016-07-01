@@ -71,6 +71,7 @@ bundle install
 
 ```
 bower install
+RAILS_ENV=production bin/rake assets:precompile
 ```
 
 6) Run the app :
