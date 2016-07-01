@@ -1,0 +1,22 @@
+{
+  "name": "atwan",
+  "homepage": "http://github.com/adenaud/atwan",
+  "authors": [
+    "Anthony DENAUD <anthony@anthonydenaud.com>"
+  ],
+  "description": "",
+  "main": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "bootstrap-table": "1.10.1",
+    "bootstrap-select": "1.10.0",
+    "fontawesome": "4.6.2"
+  }
+}

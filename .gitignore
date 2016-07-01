@@ -17,6 +17,10 @@
 /tmp
 .idea
 
+#Ignore bower files
+/vendor/assets/components
+
 # Ignore application configuration
 /config/database.yml
 /config/application.yml
+
