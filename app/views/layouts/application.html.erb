@@ -21,9 +21,6 @@
               <%= session[:current_user]['nickname'] %> <span class="caret"></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
-              <li><a href="#"></a></li>
-              <li><a href="#">Profile</a></li>
-              <li role="separator" class="divider"></li>
               <li><%= link_to 'Déconnexion', 'sign-out' %></li>
             </ul>
           </div>
@@ -40,26 +37,16 @@
                   <div class="login-dropdown">
                     <p><b>Sign in through Steam</b></p>
                     <%= link_to image_tag('https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png'), root_url + 'auth/steam' %>
-                    <p><b>Or</b></p>
-                    <form action="<%= url_for(action: 'login', controller: 'user') %>" method="post">
-
-                      <div class="form">
-                        <input type="text" name="username" placeholder="Username" class="form-control"/>
-                        <input type="password" name="password" placeholder="Password" class="form-control"/>
-                        <button type="submit" class="btn btn-success">Sign in</button>
-                      </div>
-                    </form>
                   </div>
                 </li>
               </ul>
             </div>
-            <%= link_to 'Sign up', 'sign-up', class: 'btn btn-link'%>
           </div>
 
       <% end %>
     </div>
     <div class="site-title"><a href="/">ARK Trip Wire Alarm Notification</a></div>
-    <div class="site-subtitle">Notifications dashboard</div>
+    <div class="site-subtitle">Notification dashboard</div>
   </div>
 </header>
 
