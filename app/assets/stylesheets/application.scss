@@ -16,3 +16,53 @@
  *= require bootstrap-select/dist/css/bootstrap-select
  *= require bootstrap-table/dist/bootstrap-table
  */
+
+header{
+  background-color: #212121;
+  height: 100px;
+  box-shadow: 0 0 3px #212121;
+
+  .top-nav{
+    float: right;
+    height: 32px;
+
+    .btn-link{
+      color: rgba(255, 255, 255, 0.92);;
+    }
+    .btn-link:hover, .btn-link:active, .btn-link:after, .btn-link:focus{
+      text-decoration: none;
+    }
+  }
+
+  .site-title{
+    margin-top: 22px;
+    font-size: 20pt;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: "Roboto",sans-serif;
+    font-weight: bold;
+    line-height: 34px;
+  }
+  .site-subtitle{
+    @extend .site-title;
+    margin-top: 0;
+    font-size: 14pt;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.72);
+    font-weight: normal;
+  }
+
+  .login-dropdown{
+    width: 280px;
+    padding: 16px;
+    img{
+      margin-bottom: 8px;
+    }
+    input{
+      margin-bottom: 8px;
+    }
+    .btn{
+      width: 100%;
+    }
+  }
+
+}

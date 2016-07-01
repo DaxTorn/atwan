@@ -12,6 +12,42 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap/dist/css/bootstrap
+ *= require bootstrap-select/dist/css/bootstrap-select
+ *= require bootstrap-table/dist/bootstrap-table
  */
+header {
+  background-color: #212121;
+  height: 100px;
+  box-shadow: 0 0 3px #212121; }
+  header .top-nav {
+    float: right;
+    height: 32px; }
+    header .top-nav .btn-link {
+      color: rgba(255, 255, 255, 0.92); }
+    header .top-nav .btn-link:hover, header .top-nav .btn-link:active, header .top-nav .btn-link:after, header .top-nav .btn-link:focus {
+      text-decoration: none; }
+  header .site-title, header .site-subtitle {
+    margin-top: 22px;
+    font-size: 20pt;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: "Roboto",sans-serif;
+    font-weight: bold;
+    line-height: 34px; }
+  header .site-subtitle {
+    margin-top: 0;
+    font-size: 14pt;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.72);
+    font-weight: normal; }
+  header .login-dropdown {
+    width: 280px;
+    padding: 16px; }
+    header .login-dropdown img {
+      margin-bottom: 8px; }
+    header .login-dropdown input {
+      margin-bottom: 8px; }
+    header .login-dropdown .btn {
+      width: 100%; }
 
 /*# sourceMappingURL=application.css.map */

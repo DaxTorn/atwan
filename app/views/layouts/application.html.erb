@@ -9,8 +9,61 @@
 </head>
 <body>
 
+<header>
+  <div class="container">
+    <div class="top-nav">
+
+      <% if session.key? :current_user %>
+
+          <div class="btn-group">
+            <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+              <%= session[:current_user]['nickname'] %> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="#"></a></li>
+              <li><a href="#">Profil</a></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to 'Déconnexion', 'sign-out' %></li>
+            </ul>
+          </div>
+
+      <% else %>
+          <div class="btn-group" role="group">
+            <div class="btn-group">
+              <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenu1"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Connexion
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <li>
+                  <div class="login-dropdown">
+                    <p><b>Connexion via Steam</b></p>
+                    <%= link_to image_tag('https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png'), root_url + 'auth/steam' %>
+                    <p><b>Or</b></p>
+                    <form action="<%= url_for(action: 'login', controller: 'user') %>" method="post">
+
+                      <div class="form">
+                        <input type="text" name="username" placeholder="Username" class="form-control"/>
+                        <input type="password" name="password" placeholder="Password" class="form-control"/>
+                        <button type="submit" class="btn btn-success">Connexion</button>
+                      </div>
+                    </form>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <%= link_to 'S\'enregistrer', 'sign-up', class: 'btn btn-link'%>
+          </div>
+
+      <% end %>
+    </div>
+    <div class="site-title">ARK Trip Wire Alarm Notification</div>
+    <div class="site-subtitle">Notifications dashboard</div>
+  </div>
+</header>
+
 <div class="container">
-  <div class="page-header"><h1>ARK Trip Wire Alarm Notification</h1></div>
   <%= yield %>
 </div>
 

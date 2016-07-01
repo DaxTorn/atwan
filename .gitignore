@@ -17,6 +17,8 @@
 /tmp
 .idea
 
+application.css.map
+
 #Ignore bower files
 /vendor/assets/components
 
