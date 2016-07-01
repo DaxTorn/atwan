@@ -20,6 +20,12 @@ header {
   background-color: #212121;
   height: 100px;
   box-shadow: 0 0 3px #212121; }
+  header a {
+    color: rgba(255, 255, 255, 0.92);
+    transition: all 0.15s linear 0s; }
+  header a:hover, header a:active, header a:after, header a:focus {
+    color: #8bc34a;
+    text-decoration: none; }
   header .top-nav {
     float: right;
     height: 32px; }
