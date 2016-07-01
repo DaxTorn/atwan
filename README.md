@@ -46,9 +46,9 @@ production:
 Replace the ```adapter```, ```host```, ```username```, ```password``` and ```database``` fields with your database settings.
 This is the most basic configuration file, feel free to change it depending of your needs. 
 
-This project is developed with Postgres, if you choose to use an other DMBS you have to change the ```adapter``` field.
+This project is developed with Postgres, if you choose to use an other DBMS you have to change the ```adapter``` field.
 
-The ```adapter``` field correspond to the DMBS driver to use, it could be  ```postgresql```, ```sqlite3``` or ```mysql2```, for more details refer to the [Configuring a Database](http://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) chapter of the Rails documentation.
+The ```adapter``` field correspond to the DBMS driver to use, it could be  ```postgresql```, ```sqlite3``` or ```mysql2```, for more details refer to the [Configuring a Database](http://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) chapter of the Rails documentation.
 You also have to change the gem to use in the ```Gemfile```.
 
 Once your database is properly configured type ```rake db:migrate``` to generate the tables.
