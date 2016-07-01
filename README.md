@@ -63,7 +63,9 @@ The secret key ise used by Rails it self, to generate one run ```rake secret```.
 
 4) Install the gems :
 
-```bundle install```
+```
+bundle install
+```
 
 5) Install the Javascript and CSS assets :
 
