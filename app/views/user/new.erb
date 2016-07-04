@@ -1,11 +1,21 @@
 <div class="page-header"><h3>Sign in</h3></div>
 
-<%= form_for :user, html: {class: 'form-horizontal'} do |f| %>
+<%= form_for @user, url: {action: 'create'}, html: {class: 'form-horizontal'} do |f| %>
 
     <div class="panel panel-default">
       <div class="panel-body">
 
         <p>To sign up, fill the following form or click on the "Sign in through Steam" button.</p>
+
+
+
+        <% if @user.errors.any? %>
+            <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+        <% end %>
 
         <div class="form-group">
           <%= f.label :nickname, 'Username', class: 'col-sm-2 control-label' %>
@@ -31,7 +41,14 @@
         <div class="form-group">
           <%= f.label :password, class: 'col-sm-2 control-label' %>
           <div class="col-sm-5">
-            <%= f.text_field :password, class: 'form-control' %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, class: 'col-sm-2 control-label' %>
+          <div class="col-sm-5">
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
           </div>
         </div>
 
