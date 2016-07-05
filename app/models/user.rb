@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
     after_save :clear_password
 
     validates :nickname, :email, :steamid, :password, presence: true
-    validates :steamid, length: {is: 16}
+    validates :steamid, length: {is: 17}
     validates :password, confirmation: true
+    validates :steamid, :nickname, uniqueness: true
 
     def encrypt_password
         md5 = Digest::MD5.new

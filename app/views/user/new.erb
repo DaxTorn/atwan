@@ -7,47 +7,42 @@
 
         <p>To sign up, fill the following form or click on the "Sign in through Steam" button.</p>
 
-
-
-        <% if @user.errors.any? %>
-            <ul>
-              <% @user.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-              <% end %>
-            </ul>
-        <% end %>
-
-        <div class="form-group">
+        <div class="form-group <% if @user.errors[:nickname].count > 0 %>has-error<% end %>">
           <%= f.label :nickname, 'Username', class: 'col-sm-2 control-label' %>
           <div class="col-sm-5">
+            <%= @user.errors[:nickname].join(',') %>
             <%= f.text_field :nickname, class: 'form-control' %>
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group <% if @user.errors[:email].count > 0 %>has-error<% end %>">
           <%= f.label :email, class: 'col-sm-2 control-label' %>
           <div class="col-sm-5">
+            <%= @user.errors[:email].join(',') %>
             <%= f.text_field :email, class: 'form-control' %>
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group <% if @user.errors[:steamid].count > 0 %>has-error<% end %>">
           <%= f.label :steamid, 'Steam Id', class: 'col-sm-2 control-label' %>
           <div class="col-sm-5">
+            <%= @user.errors[:steamid].join(',') %>
             <%= f.text_field :steamid, class: 'form-control' %>
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group <% if @user.errors[:password].count > 0 %>has-error<% end %>">
           <%= f.label :password, class: 'col-sm-2 control-label' %>
           <div class="col-sm-5">
+            <%= @user.errors[:password].join(',') %>
             <%= f.password_field :password, class: 'form-control' %>
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group <% if @user.errors[:password_confirmation].count > 0 %>has-error<% end %>">
           <%= f.label :password_confirmation, class: 'col-sm-2 control-label' %>
           <div class="col-sm-5">
+            <%= @user.errors[:password_confirmation].join(',') %>
             <%= f.password_field :password_confirmation, class: 'form-control' %>
           </div>
         </div>

@@ -4,12 +4,11 @@ class NotificationController < ApplicationController
 
   def index
     if session.key? :current_user
-      @notifications = Notification.where(steamid: session[:current_user]['uid'] )
+      @notifications = Notification.where(steamid: session[:current_user]['steamid'])
     end
   end
 
   def create
-
     notification = Notification.new
     notification.uuid = SecureRandom.uuid
     notification.key = params[:key]
@@ -19,7 +18,6 @@ class NotificationController < ApplicationController
     notification.save
 
     user = User.find_by_steamid(params[:steamid])
-
     UserNotifier.send_notification(user, params[:notetitle]).deliver_now
 
     render json: {:status => 'OK'}
