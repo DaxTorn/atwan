@@ -53,11 +53,22 @@ You also have to change the gem to use in the ```Gemfile```.
 
 Once your database is properly configured type ```rake db:migrate``` to generate the tables.
 
-3) Configure your application settings : in the ```config```  create a ```application.yml``` and fill it with your API Key and a secret key.
+3) Configure your application settings : in the ```config```  create a ```application.yml``` and fill it with your API Key, Rails production token and emails settings.
 
 ```
 STEAM_WEB_API_KEY: 'stem_api_key'
 SECRET_KEY_BASE: 'secret_tocker'
+
+MAILER_FROM_ADDRESS: 'ARK Notifier <email@exemple.com>'
+MAIL_SUBJECT: 'ARK Trip Wire Alarm'
+
+SMTP_USERNAME: 'username'
+SMTP_PASSWORD: 'password'
+SMTP_HOST: 'host'
+SMTP_PORT: 'port'
+SMTP_TLS: true
+SMTP_SSL: true
+
 ```
 The secret key ise used by Rails it self, to generate one run ```rake secret```.
 

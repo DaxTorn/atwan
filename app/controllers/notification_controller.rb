@@ -18,6 +18,10 @@ class NotificationController < ApplicationController
     notification.message = params[:message]
     notification.save
 
+    user = User.find_by_steamid(params[:steamid])
+
+    UserNotifier.send_notification(user, params[:notetitle]).deliver_now
+
     render json: {:status => 'OK'}
   end
 
