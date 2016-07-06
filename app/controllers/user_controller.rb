@@ -8,11 +8,13 @@ class UserController < ApplicationController
     end
 
     def auth_callback
+
+        # Log the user in.
         auth = request.env['omniauth.auth']
         session[:current_user] = {:nickname => auth.info.nickname, :steamid => auth.uid}
 
+        # Creates a new user if it doesn't exists in the database.
         user = User.find_by_steamid(auth.uid)
-
         if user.nil?
             user = User.new
             user.nickname = auth.info.nickname
@@ -21,6 +23,11 @@ class UserController < ApplicationController
             user.steamid = auth.uid
             user.save!(:validate => false)
         end
+
+        # Update user details in database on each login via steam.
+        user.nickname = auth.info.nickname
+        user.name = auth.info.name
+        user.save!(:validate => false)
 
         redirect_to root_url
     end
