@@ -58,6 +58,23 @@ class UserController < ApplicationController
         redirect_to root_url
     end
 
+    def profile
+        @user = User.find_by_steamid(session[:current_user]['steamid'])
+    end
+
+    def profile_update
+
+        @user = User.find_by_steamid(session[:current_user]['steamid'])
+        if user_params[:password_confirmation].length > 0
+            @user.update_attributes(user_params)
+        else
+            @user.email = user_params[:email]
+            @user.save(:validate => false)
+        end
+        render ('user/profile')
+
+    end
+
     private
 
     def user_params

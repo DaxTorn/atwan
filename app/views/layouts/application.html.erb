@@ -22,7 +22,7 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
               <li><a href="#"></a></li>
-              <li><a href="#">Profile</a></li>
+              <li><a href="<%= profile_url %>">Profile</a></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to 'Déconnexion', 'sign-out' %></li>
             </ul>
@@ -46,7 +46,7 @@
                       <div class="form">
                         <input type="text" name="username" placeholder="Username" class="form-control"/>
                         <input type="password" name="password" placeholder="Password" class="form-control"/>
-                        <button type="submit" class="btn btn-success">Sign in</button>
+                        <button type="submit" class="btn btn-primary">Sign in</button>
                       </div>
                     </form>
                   </div>
@@ -58,7 +58,7 @@
 
       <% end %>
     </div>
-    <div class="site-title"><a href="/">ARK Trip Wire Alarm Notification</a></div>
+    <div class="site-title"><a href="<%= root_path %>">ARK Trip Wire Alarm Notification</a></div>
     <div class="site-subtitle">Notifications dashboard</div>
   </div>
 </header>
