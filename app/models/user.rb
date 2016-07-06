@@ -10,8 +10,10 @@ class User < ActiveRecord::Base
     validates :steamid, :nickname, uniqueness: true
 
     def encrypt_password
-        md5 = Digest::MD5.new
-        self.password = md5 << password
+        unless password.nil?
+            md5 = Digest::MD5.new
+            self.password = md5 << password
+        end
     end
 
     def clear_password
