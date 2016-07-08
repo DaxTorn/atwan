@@ -10,11 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  *= require bootstrap/dist/css/bootstrap
  *= require bootstrap-select/dist/css/bootstrap-select
  *= require bootstrap-table/dist/bootstrap-table
+ *= require_tree .
+ *= require_self
  */
 
 header{
@@ -74,4 +74,22 @@ header{
     }
   }
 
+}
+
+a{
+  color: #8bc34a;
+}
+
+a:hover, a:active, a:after, a:focus{
+  color: #669037;
+}
+
+.btn-primary{
+  background-color: #8bc34a;
+  border-color: #84b946;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active:hover, .btn-primary:active:focus{
+  background-color: #84b946;
+  border-color: #84b946;
 }

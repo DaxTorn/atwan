@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  root 'notification#index'
-  get 'sign-out' => 'user#logout'
-  post 'notification' => 'notification#create'
-  post 'auth/steam/callback' => 'user#auth_callback'
+    root 'notification#index'
+    post 'sign-in' => 'user#login'
+    get 'sign-out' => 'user#logout'
+    get 'sign-up' => 'user#new'
+    post 'sign-up' => 'user#create'
+    post 'notification' => 'notification#create'
+    post 'auth/steam/callback' => 'user#auth_callback'
+    get 'profile' => 'user#profile'
+    patch 'profile' => 'user#profile_update'
 end

@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require bootstrap/dist/js/bootstrap
 //= require bootstrap-select/dist/js/bootstrap-select

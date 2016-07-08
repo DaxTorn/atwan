@@ -1,0 +1,56 @@
+<div class="page-header"><h3>Sign in</h3></div>
+
+<%= form_for @user, url: {action: 'create'}, html: {class: 'form-horizontal'} do |f| %>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <p>To sign up, fill out the following form or click on the "Sign in through Steam" button.</p>
+
+        <div class="form-group <% if @user.errors[:nickname].count > 0 %>has-error<% end %>">
+          <%= f.label :nickname, 'Username', class: 'col-sm-2 control-label' %>
+          <div class="col-sm-5">
+            <%= @user.errors[:nickname].join(',') %>
+            <%= f.text_field :nickname, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group <% if @user.errors[:email].count > 0 %>has-error<% end %>">
+          <%= f.label :email, class: 'col-sm-2 control-label' %>
+          <div class="col-sm-5">
+            <%= @user.errors[:email].join(',') %>
+            <%= f.text_field :email, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group <% if @user.errors[:steamid].count > 0 %>has-error<% end %>">
+          <%= f.label :steamid, 'Steam Id', class: 'col-sm-2 control-label' %>
+          <div class="col-sm-5">
+            <%= @user.errors[:steamid].join(',') %>
+            <%= f.text_field :steamid, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group <% if @user.errors[:password].count > 0 %>has-error<% end %>">
+          <%= f.label :password, class: 'col-sm-2 control-label' %>
+          <div class="col-sm-5">
+            <%= @user.errors[:password].join(',') %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group <% if @user.errors[:password_confirmation].count > 0 %>has-error<% end %>">
+          <%= f.label :password_confirmation, class: 'col-sm-2 control-label' %>
+          <div class="col-sm-5">
+            <%= @user.errors[:password_confirmation].join(',') %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="text-right">
+      <%= link_to image_tag('https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png'), root_url + 'auth/steam' %>
+      <%= f.submit 'Sign up', class: 'btn btn-primary' %>
+    </div>
+<% end %>
